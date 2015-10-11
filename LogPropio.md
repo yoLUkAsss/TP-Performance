@@ -9,3 +9,9 @@ LOG DE ERRORES Y CORRECCIONES
     Solucion... Modificar, el puerto, usando el 3306...
 
   
+  Error 2 ..:::..
+  	Test DepartmentDAOTest tardaba 60 sec aprox en ejecutarse.
+  	
+  	Causa: En los mapeos de hibernate las clases Employee, Salary, Department se encontro que las colecciones estaban configuradas con lazy="false".
+  	
+  	Solucion... Modificar el lazy a true.
