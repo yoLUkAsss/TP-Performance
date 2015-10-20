@@ -16,6 +16,14 @@ class DepartmentDAO {
 		val session = SessionManager.getSession()
 		session.get(Department, num) as Department
 	}
+	
+	def getByCodeAndEmployees(String num){
+		val session = SessionManager.getSession()
+		val q =session.createQuery("from Department d join fetch d.employees e join fetch e.salaries join fetch e.titles where d.code = :num ")
+		q.setParameter("num", num);
+		q.uniqueResult as Department
+		
+	}
 
 	def getAll() {
 		val session = SessionManager.getSession()

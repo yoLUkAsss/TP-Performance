@@ -18,6 +18,13 @@ class EmployeeDAO {
 		val session = SessionManager.getSession()
 		session.createCriteria(Employee).list() as List<Employee>
 	}
+	
+	def getEmployeesAndSalaries(){
+		val session = SessionManager.getSession()
+		val q = session.createQuery("select s.employee from Salary s order by s.amount")
+		q.maxResults = 10
+		q.list as List<Employee>
+	}
 
 	def getByCode(int id) {
 		val session = SessionManager.getSession()
